@@ -3,7 +3,7 @@
 imports:
   commons: ../../common.yml
   uploadCommons: ../../upload/common.yml
-  groupCommons: ../../group/common.yml
+  groupCommons: ../../common/group/common.yml
   cloudCommons: ../../cloud/common.yml
 
 service:

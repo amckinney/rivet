@@ -2,21 +2,11 @@
 
 imports:
   commons: ../common.yml
+  gameCommons: ../common/game/common.yml
   groupCommons: ../group/common.yml
+  groupRootCommons: ../common/group/common.yml
 
 types:
-  Handle:
-    properties:
-      game_id: uuid
-      name_id: commons.Identifier
-      display_name: commons.DisplayName
-      logo_url:
-        docs: The URL of this game's logo image.
-        type: optional<string>
-      banner_url:
-        docs: The URL of this game's banner image.
-        type: optional<string>
-
   Summary:
     properties:
       game_id: uuid
@@ -29,7 +19,7 @@ types:
         docs: The URL of this game's banner image.
         type: optional<string>
       url: string
-      developer: groupCommons.Handle
+      developer: groupRootCommons.Handle
 
   Profile:
     docs: A game profile.
@@ -97,7 +87,7 @@ types:
   StatSummary:
     docs: A game statistic summary.
     properties:
-      game: Handle
+      game: gameCommons.Handle
       stats: list<Stat>
 
   Stat:

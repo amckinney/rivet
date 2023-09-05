@@ -2,7 +2,8 @@
 
 imports:
   commons: ../common.yml
-  identityCommons: ../identity/common.yml
+  identityCommons: ../common/identity/common.yml
+  groupCommons: ../common/group/common.yml
 
 types:
   Summary:
@@ -12,7 +13,7 @@ types:
       avatar_url:
         type: optional<string>
         docs: The URL of this group's avatar image.
-      external: ExternalLinks
+      external: groupCommons.ExternalLinks
       is_developer:
         type: boolean
         docs: Whether or not this group is a developer.
@@ -30,29 +31,6 @@ types:
     enum:
       - open
       - closed
-
-  Handle:
-    docs: A group handle.
-    properties:
-      group_id: uuid
-      display_name: commons.DisplayName
-      avatar_url:
-        docs: The URL of this group's avatar image
-        type: optional<string>
-      external: ExternalLinks
-      is_developer:
-        docs: Whether or not this group is a developer group.
-        type: optional<boolean>
-
-  ExternalLinks:
-    docs: External links for this group.
-    properties:
-      profile:
-        type: string
-        docs: A link to this group's profile page.
-      chat:
-        type: string
-        docs: A link to this group's chat page.
 
   JoinRequest:
     docs: A group join request.
@@ -78,7 +56,7 @@ types:
       avatar_url:
         docs: The URL of this group's avatar image.
         type: optional<string>
-      external: ExternalLinks
+      external: groupCommons.ExternalLinks
       is_developer:
         docs: Whether or not this group is a developer.
         type: optional<boolean>

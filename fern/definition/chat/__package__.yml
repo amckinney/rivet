@@ -2,7 +2,6 @@
 
 imports:
   localCommons: common.yml
-  identityCommons: ../identity/common.yml
   chatCommons: ../chat/common.yml
   commons: ../common.yml
 

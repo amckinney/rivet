@@ -1,0 +1,25 @@
+imports:
+  commons: ../../common.yml
+types:
+  Handle:
+    docs: A group handle.
+    properties:
+      group_id: uuid
+      display_name: commons.DisplayName
+      avatar_url:
+        docs: The URL of this group's avatar image
+        type: optional<string>
+      external: ExternalLinks
+      is_developer:
+        docs: Whether or not this group is a developer group.
+        type: optional<boolean>
+
+  ExternalLinks:
+    docs: External links for this group.
+    properties:
+      profile:
+        type: string
+        docs: A link to this group's profile page.
+      chat:
+        type: string
+        docs: A link to this group's chat page.

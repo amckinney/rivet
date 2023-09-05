@@ -1,0 +1,14 @@
+imports:
+  commons: ../../common.yml
+types:
+  Handle:
+    properties:
+      game_id: uuid
+      name_id: commons.Identifier
+      display_name: commons.DisplayName
+      logo_url:
+        docs: The URL of this game's logo image.
+        type: optional<string>
+      banner_url:
+        docs: The URL of this game's banner image.
+        type: optional<string>

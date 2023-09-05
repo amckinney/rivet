@@ -3,8 +3,8 @@
 imports:
   commons: ../common.yml
   localCommons: common.yml
-  groupCommons: ../group/common.yml
-  identityCommons: ../identity/common.yml
+  groupCommons: ../common/group/common.yml
+  identityCommons: ../common/identity/common.yml
 
 types:
   SendTopic:

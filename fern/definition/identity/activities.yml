@@ -2,7 +2,7 @@
 
 imports:
   commons: ../common.yml
-  identityCommons: ../identity/common.yml
+  identityCommons: ../common/identity/common.yml
   groupCommons: ../group/common.yml
   gameCommons: ../game/common.yml
 

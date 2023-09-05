@@ -3,8 +3,8 @@
 imports:
   localCommons: common.yml
   commons: ../common.yml
+  identityRootCommons: ../common/identity/common.yml
   identityCommons: ../identity/common.yml
-  gameCommons: ../game/common.yml
   uploadCommons: ../upload/common.yml
 
 service:
@@ -163,7 +163,7 @@ service:
         name: UpdateStatusRequest
         body:
           properties:
-            status: identityCommons.Status
+            status: identityRootCommons.Status
 
     follow:
       docs: Follows the given identity. In order for identities to be "friends", the
@@ -339,7 +339,7 @@ types:
 
   GetHandlesResponse:
     properties:
-      identities: list<identityCommons.Handle>
+      identities: list<identityRootCommons.Handle>
       watch: commons.WatchResponse
 
   GetSummariesResponse:
@@ -353,7 +353,7 @@ types:
 
   SearchResponse:
     properties:
-      identities: list<identityCommons.Handle>
+      identities: list<identityRootCommons.Handle>
       anchor:
         type: optional<string>
         docs: |
@@ -366,29 +366,29 @@ types:
 
   ListFollowersResponse:
     properties:
-      identities: list<identityCommons.Handle>
+      identities: list<identityRootCommons.Handle>
       anchor: optional<string>
       watch: commons.WatchResponse
 
   ListFollowingResponse:
     properties:
-      identities: list<identityCommons.Handle>
+      identities: list<identityRootCommons.Handle>
       anchor: optional<string>
       watch: commons.WatchResponse
 
   ListRecentFollowersResponse:
     properties:
-      identities: list<identityCommons.Handle>
+      identities: list<identityRootCommons.Handle>
       anchor: optional<string>
       watch: commons.WatchResponse
 
   ListFriendsResponse:
     properties:
-      identities: list<identityCommons.Handle>
+      identities: list<identityRootCommons.Handle>
       anchor: optional<string>
       watch: commons.WatchResponse
 
   ListMutualFriendsResponse:
     properties:
-      identities: list<identityCommons.Handle>
+      identities: list<identityRootCommons.Handle>
       anchor: optional<string>

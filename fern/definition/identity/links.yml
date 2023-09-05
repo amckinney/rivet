@@ -2,8 +2,9 @@
 
 imports:
   commons: ../common.yml
+  identityRootCommons: ../common/identity/common.yml
   identityCommons: ../identity/common.yml
-  gameCommons: ../game/common.yml
+  gameCommons: ../common/game/common.yml
 
 service:
   auth: true
@@ -76,7 +77,7 @@ types:
     properties:
       status: identityCommons.GameLinkStatus
       game: gameCommons.Handle
-      current_identity: identityCommons.Handle
+      current_identity: identityRootCommons.Handle
       new_identity: optional<GetGameLinkNewIdentity>
       watch: commons.WatchResponse
 

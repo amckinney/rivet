@@ -4,8 +4,9 @@ imports:
   chatCommons: ../chat/common.yml
   commons: ../common.yml
   gameCommons: ../game/common.yml
-  groupCommons: ../group/common.yml
+  groupCommons: ../common/group/common.yml
   identityCommons: ../identity/common.yml
+  identityRootCommons: ../common/identity/common.yml
   matchmakerCommons: ../matchmaker/common.yml
 
 types:
@@ -64,7 +65,7 @@ types:
 
   GlobalEventIdentityUpdate:
     properties:
-      identity: identityCommons.Profile
+      identity: Profile
 
   GlobalEventMatchmakerLobbyJoin:
     properties:
@@ -94,21 +95,6 @@ types:
         type: optional<unknown>
         docs: JSON data seen only by the given identity and their mutual followers.
 
-  Handle:
-    docs: An identity handle.
-    properties:
-      identity_id: uuid
-      display_name: commons.DisplayName
-      account_number: commons.AccountNumber
-      avatar_url:
-        type: string
-        docs: The URL of this identity's avatar image.
-      presence: optional<Presence>
-      is_registered:
-        type: boolean
-        docs: Whether or not this identity is registered with a linked account.
-      external: ExternalLinks
-
   Summary:
     docs: An identity summary.
     properties:
@@ -118,11 +104,11 @@ types:
       avatar_url:
         type: string
         docs: The URL of this identity's avatar image.
-      presence: optional<Presence>
+      presence: optional<identityRootCommons.Presence>
       is_registered:
         type: boolean
         docs: Whether or not this identity is registered with a linked account.
-      external: ExternalLinks
+      external: identityRootCommons.ExternalLinks
       following:
         type: boolean
         docs: Whether or not the requestee's identity is following this identity.
@@ -141,11 +127,11 @@ types:
       avatar_url:
         docs: The URL of this identity's avatar image.
         type: string
-      presence: optional<Presence>
+      presence: optional<identityRootCommons.Presence>
       is_registered:
         docs: Whether or not this identity is registered with a linked account.
         type: boolean
-      external: ExternalLinks
+      external: identityRootCommons.ExternalLinks
       is_admin:
         docs: Whether or not this identity is an admin.
         type: boolean
@@ -176,48 +162,6 @@ types:
           Whether or not this identity is awaiting account deletion. Only visible to when the requestee is
           this identity.
         type: optional<boolean>
-
-  ExternalLinks:
-    docs: External links for an identity.
-    properties:
-      profile:
-        type: string
-        docs: A link to this identity's profile page.
-      settings:
-        type: optional<string>
-        docs: A link to the Rivet settings page.
-      chat:
-        type: optional<string>
-        docs: A link to a chat page with the given identity.
-
-  Presence:
-    docs: Information about the identity's current status, party, and active game.
-    properties:
-      update_ts: datetime
-      status: Status
-      game_activity: optional<GameActivity>
-
-  Status:
-    docs: The current status of an identity. This helps players understand if
-      another player is currently playing or has their game in the background.
-    enum:
-      - online
-      - away
-      - offline
-
-  GameActivity:
-    docs: The game an identity is currently participating in.
-    properties:
-      game: gameCommons.Handle
-      message:
-        type: string
-        docs: A short activity message about the current game activity.
-      public_metadata:
-        type: optional<unknown>
-        docs: JSON data seen by anyone.
-      mutual_metadata:
-        type: optional<unknown>
-        docs: JSON data seen only by the given identity and their mutual followers.
 
   Group:
     docs: A group that the given identity.

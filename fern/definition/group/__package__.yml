@@ -3,6 +3,7 @@
 imports:
   commons: ../common.yml
   uploadCommons: ../upload/common.yml
+  groupRootCommons: ../common/group/common.yml
   groupCommons: ../group/common.yml
 
 service:
@@ -295,7 +296,7 @@ types:
     properties:
       groups:
         docs: A list of group handles.
-        type: list<groupCommons.Handle>
+        type: list<groupRootCommons.Handle>
       anchor: optional<string>
 
   GetBansResponse:

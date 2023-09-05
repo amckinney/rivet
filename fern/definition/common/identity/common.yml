@@ -1,0 +1,61 @@
+imports:
+  commons: ../../common.yml
+  gameCommons: ../game/common.yml
+
+types:
+  Handle:
+    docs: An identity handle.
+    properties:
+      identity_id: uuid
+      display_name: commons.DisplayName
+      account_number: commons.AccountNumber
+      avatar_url:
+        type: string
+        docs: The URL of this identity's avatar image.
+      presence: optional<Presence>
+      is_registered:
+        type: boolean
+        docs: Whether or not this identity is registered with a linked account.
+      external: ExternalLinks
+
+  Presence:
+    docs: Information about the identity's current status, party, and active game.
+    properties:
+      update_ts: datetime
+      status: Status
+      game_activity: optional<GameActivity>
+
+  ExternalLinks:
+    docs: External links for an identity.
+    properties:
+      profile:
+        type: string
+        docs: A link to this identity's profile page.
+      settings:
+        type: optional<string>
+        docs: A link to the Rivet settings page.
+      chat:
+        type: optional<string>
+        docs: A link to a chat page with the given identity.
+
+  Status:
+    docs: The current status of an identity. This helps players understand if
+      another player is currently playing or has their game in the background.
+    enum:
+      - online
+      - away
+      - offline
+
+  GameActivity:
+    docs: The game an identity is currently participating in.
+    properties:
+      game: gameCommons.Handle
+      message:
+        type: string
+        docs: A short activity message about the current game activity.
+      public_metadata:
+        type: optional<unknown>
+        docs: JSON data seen by anyone.
+      mutual_metadata:
+        type: optional<unknown>
+        docs: JSON data seen only by the given identity and their mutual followers.

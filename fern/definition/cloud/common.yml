@@ -2,7 +2,7 @@
 
 imports:
   commons: ../common.yml
-  gameCommons: ../game/common.yml
+  gameCommons: ../common/game/common.yml
   version: version/__package__.yml
   matchmakerCommons: version/matchmaker/common.yml
 
